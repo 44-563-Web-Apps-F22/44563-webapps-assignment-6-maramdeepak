@@ -1,0 +1,72 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>!!!...VACATION TOUR...!!!</title>
+        </head>
+        <body>
+        <h1>Deepak Reddy Maram selects a vacation</h1>
+        <h2>Getting input</h2>
+
+        <form>
+            <div class="form-group">
+                <input type="checkbox" id="byairway" name="vacationtime" value="true">
+                <label for="airway">Travel by Air</label></div> <br>
+                <div class="form-group">
+                <input type="checkbox" id="bydomestic" name="vacationtime" value="true">
+                <label for="domestic">Domestic</label> </div><br>
+                <div class="form-group">
+                <input type="checkbox" id="byresort" name="vacationtime" value="false">
+                <label for="resorts">Resort</label> </div><br>
+                <div class="form-group">
+                <input type="button" class="btn btn-warning" value="Select a vacation" onclick="selectVacation()">
+            </div>
+        </form>
+
+        <p id="result">Result will be seen here....!!! </p>
+
+        <form>
+            <label for="city">Enter a city</label>
+            <input type="text" id="city" name="propertyname" value="city"> <br>
+            
+            <label for="price">Enter price</label>
+            <input type="text" id="price" name="vacationprice"> <br>
+        
+            <input type="button" class="btn btn-success" value="Update the vacation" onclick="updateVacation()">
+            <p id="result1">Selected vacation will appear here....</p>
+        </form> 
+
+        <script> 
+        var my_vacation = {};
+        function selectVacation(){
+            my_vacation = {}
+            let fly = document.getElementById("byairway").checked
+            let private = document.getElementById("bydomestic").checked
+            let house = document.getElementById("byresort").checked
+            if(fly)
+                my_vacation.byair = true;
+            else
+                my_vacation.byair = false;
+            if(private)
+                my_vacation.bydomestic = true;
+            else
+                my_vacation.bydomestic = false;
+            if(house)
+                my_vacation.byresort = true;
+            else
+                my_vacation.byresort = false;
+
+            document.getElementById("result").innerHTML=JSON.stringify(my_vacation)
+        }
+        function updateVacation()
+        {
+            let city=document.getElementById("city").value;
+            let price=document.getElementById("price").value;
+            my_vacation["city"]=city;
+            my_vacation["price"]=price;
+        
+            document.getElementById("result1").innerHTML=JSON.stringify(my_vacation)
+        }
+        </script>
+
+        </body>
+        </html> 
