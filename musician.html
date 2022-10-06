@@ -13,12 +13,38 @@
     <input type ="text" id="form_guess" name="form_guess" autofocus> <br>
     <input type="button" onclick="checkGuess()" value="Check the Guess">
 </form>
+<div class="container">
 
+   <img class="img-fluid" id="image" src="army.jpg" style="width: 100px; height: 100px" onclick="swapImage()">
+
+</div>
 
 
 <script> 
 var correct = 0
 var wrong = 0
+var useImage = 1;
+
+        function swapImage(){
+            switch(useImage){
+                case 1:
+                    document.getElementById("image").src = "army.jpg";
+                    useImage+=1;
+                    break;
+                case 2:
+                    document.getElementById("image").src = "download.jpg";
+                    useImage+=1;
+                    break;
+                case 3:
+                    document.getElementById("image").src = "rice.jpg";
+                    useImage=1;
+                    break;
+                default:
+                    document.getElementById("image").src = "army.jpg";
+                    break;
+            }
+        }
+
 
 function checkGuess(){
     console.log("Getting form values")

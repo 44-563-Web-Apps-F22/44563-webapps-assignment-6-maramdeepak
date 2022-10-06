@@ -1,0 +1,72 @@
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    <title>!!..WELCOME TO MY OFFERS..!!</title>
+                </head>
+            
+            <body>
+            <h1 style="color:rgb(0, 0, 0)"> <span style="color:blue">Deepak Reddy Maram</span> computes discounts</h1>
+            <h2>Getting input</h2>
+
+            <form>
+                <label for="baseAmount">Enter base amount</label>
+                <input type ="number" id="baseAmount" name="baseAmount" value=20> <br>
+
+                <label for="discountValue">Enter the discount percentage </label>
+                <input type ="text" id="discountValue" name="discountValue" value=10> <br>
+
+                <input type="button" onclick="discount()" value="Apply discount">
+            </form>
+            <p id="result">Result will be seen here....!!!!</p>
+            <div class="container">
+                <form>
+                    <div class="container">
+                    <label for="multiply">*</label>
+                    <input type="radio" id="mutiply" name="multiply" value="times" onclick="chooseOp()">
+                    </div>
+                    <br>
+                    <div class="container">
+                    <label for="divide">/</label>
+                    <input type="radio" id="divide" name="divide" value="divide" onclick="chooseOp()">
+                    </div>
+                    <br>
+                    <div class="container">
+                    <label for="exponent">**</label>
+                    <input type="radio" id="exponent" name="exponent" value="exponent" onclick="chooseOp()">
+                    </div>
+                    <br>
+                </form>
+                <p id="result1">Result will be seen here....!!!!</p><br>
+            </div>
+            <script> 
+            function chooseOp(){
+                var baseValue = document.getElementById("baseAmount").value;
+                var discountValue = document.getElementById("discountValue").value;
+                    if(document.getElementById("mutiply").checked){
+                        document.getElementById("result1").innerHTML="Amount*discount= "+baseValue*discountValue
+                    }
+                    else if(document.getElementById("divide").checked){
+                        
+                        document.getElementById("result1").innerHTML="Amount/discount= "+baseValue/discountValue
+                    }
+                    else if(document.getElementById("exponent").checked){
+                        document.getElementById("result1").innerHTML="Amount*discount= "+Math.pow(baseValue,discountValue)
+                    }
+            }
+            function discount (){
+                var baseValue = document.getElementById("baseAmount").value;
+                var discountValue = document.getElementById("discountValue").value;
+                var result = "";
+                for(let n=1;n<=5;n++)
+                    {
+                        result+= (baseValue*n)-((baseValue*n)*discountValue/100)
+                    result+=" "
+                    
+                    }
+                    document.getElementById("result").innerHTML="Discounted amounts for base "+baseValue+" are "+result
+                
+            }
+            </script>
+
+            </body>
+            </html> 
